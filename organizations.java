@@ -10,7 +10,7 @@ public class organizations extends Frame
 	Statement statement;
 	Button givedetailsButton;
 	TextArea errorText;
-	TextField nameText,placeText,type_of_helpText;
+	TextField nameText,placeText,type_of_helpText,phone_noText;
 	public organizations() 
 	{
 		try 
