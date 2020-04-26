@@ -10,6 +10,7 @@ public class organizations extends Frame
 	Statement statement;
 	Button givedetailsButton;
 	TextField nameText,placeText,type_of_helpText;
+	TextArea errorText;
 	public organizations() 
 	{
 		try 
@@ -58,7 +59,7 @@ public class organizations extends Frame
 				} 
 				catch (SQLException insertException) 
 				{
-				  System.out.println(insertException);
+				  	displaySQLErrors(insertException);
 				}
 			}
 		});
@@ -68,6 +69,8 @@ public class organizations extends Frame
 		placeText = new TextField(15);
 		type_of_helpText = new TextField(15);
 		
+		errorText = new TextArea(10, 40);
+		errorText.setEditable(false);
 
 		Panel first = new Panel();
 		first.setLayout(new GridLayout(4, 2));
@@ -100,6 +103,12 @@ public class organizations extends Frame
 		setVisible(true);
 	}
 
+	private void displaySQLErrors(SQLException e) 
+	{
+		errorText.append("\nSQLException: " + e.getMessage() + "\n");
+		errorText.append("SQLState:     " + e.getSQLState() + "\n");
+		errorText.append("VendorError:  " + e.getErrorCode() + "\n");
+	}
 
 	public static void main(String[] args) 
 	{
