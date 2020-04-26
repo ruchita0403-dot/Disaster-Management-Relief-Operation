@@ -9,7 +9,7 @@ public class organizations extends Frame
 	Connection connection;
 	Statement statement;
 	Button givedetailsButton;
-	TextField nameText,placeText,type_of_helpText;
+	TextField nameText,placeText,type_of_helpText,phone_noText;
 	TextArea errorText;
 	public organizations() 
 	{
@@ -53,7 +53,7 @@ public class organizations extends Frame
 			{
 				try 
 				{
-				  String query= "INSERT INTO organization VALUES(" +"'"+ nameText.getText() + "','" + placeText.getText() + "','"+ type_of_helpText.getText() +"'," +")";
+				  String query= "INSERT INTO organization VALUES(" +"'"+ nameText.getText() + "','" + placeText.getText() + "','"+ type_of_helpText.getText() +"','" +phone_noText.getText() +"')";
 				  int i = statement.executeUpdate(query);
 				  errorText.append("\nInserted " + i + " rows successfully");
 				} 
@@ -68,6 +68,7 @@ public class organizations extends Frame
 		nameText = new TextField(15);
 		placeText = new TextField(15);
 		type_of_helpText = new TextField(15);
+		phone_noText= new TextField(15);
 		
 		errorText = new TextArea(10, 40);
 		errorText.setEditable(false);
@@ -80,7 +81,8 @@ public class organizations extends Frame
 		first.add(placeText);
 		first.add(new Label("Type_of_help:"));
 		first.add(type_of_helpText);
-		
+		first.add(new Label("phone_No:"));
+		first.add(phone_noText);
 		
 		first.setBounds(125,90,200,100);
 		
