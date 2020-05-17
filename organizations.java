@@ -13,7 +13,7 @@ public class organizations extends Frame
 	TextArea errorText;
 	public organizations() 
 	{
-		try 
+		try
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} 
